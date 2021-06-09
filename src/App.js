@@ -1,9 +1,15 @@
-import './App.scss';
+import { Layout } from "antd";
+import { Content, Footer, Header } from "antd/lib/layout/layout";
+import "./App.scss";
 
 const App = () => {
   return (
     <div className="App">
-      Ready to Go
+      <Layout>
+        <Header>Header</Header>
+        <Content>Content</Content>
+        <Footer>Footer</Footer>
+      </Layout>
     </div>
   );
 };

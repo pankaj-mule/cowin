@@ -1,5 +1,5 @@
 import "./App.scss";
-import { Dropdown, Menu } from "antd";
+import { Descriptions, Dropdown, Menu } from "antd";
 import { UserOutlined, DownOutlined } from "@ant-design/icons";
 
 //
@@ -50,7 +50,9 @@ export const App = () => {
           </Dropdown>
         </div>
       </div>
-      <div>content</div>
+      <div>
+        <EmployeeInfo />
+      </div>
       <div>Footer</div>
     </div>
   );
@@ -63,4 +65,13 @@ const menu = (
     <Menu.Item>2nd menu item</Menu.Item>
     <Menu.Item>3rd menu item</Menu.Item>
   </Menu>
+);
+
+//
+const EmployeeInfo = () => (
+  <Descriptions title={false} layout="vertical" bordered>
+    <Descriptions.Item label="Employee name">Anchit Mulye</Descriptions.Item>
+    <Descriptions.Item label="Employee ID">26347</Descriptions.Item>
+    <Descriptions.Item label="Employee grade">9A</Descriptions.Item>
+  </Descriptions>
 );

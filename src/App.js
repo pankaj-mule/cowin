@@ -1,5 +1,14 @@
 import "./App.scss";
-import { Button, Descriptions, Dropdown, Menu, Select, Table } from "antd";
+import {
+  Button,
+  Descriptions,
+  Dropdown,
+  Menu,
+  Radio,
+  Select,
+  Space,
+  Table,
+} from "antd";
 import { UserOutlined, DownOutlined } from "@ant-design/icons";
 import { useState } from "react";
 import { Option } from "antd/lib/mentions";
@@ -34,10 +43,18 @@ export const App = () => {
               "0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19)",
           }}
         >
-          <div style={{ display: "flex", justifyContent: "center" }}>
+          <div style={{ display: "grid", justifyContent: "center" }}>
             <ScheduleSlot />
           </div>
           <ScheduleDates />
+          <div
+            style={{
+              display: "grid",
+              justifyContent: "center",
+            }}
+          >
+            <TimeSlots />
+          </div>
         </div>
       </div>
       <div>Footer</div>
@@ -213,10 +230,8 @@ const DependentListData = [
 
 //
 const ScheduleSlot = () => (
-  <div>
-    <div style={{ textAlign: "center" }}>
-      <h2>Schedule slot</h2>
-    </div>
+  <>
+    <h2 style={{ textAlign: "center" }}>Schedule slot</h2>
     <Select
       showSearch
       placeholder="City"
@@ -229,7 +244,7 @@ const ScheduleSlot = () => (
       <Option value="Pune">Pune</Option>
       <Option value="Banglore">Banglore</Option>
     </Select>
-  </div>
+  </>
 );
 
 //
@@ -284,3 +299,56 @@ const ScheduleDateBlock = ({ label, value }) => (
     </div>
   </div>
 );
+
+//
+const TimeSlots = () => {
+  return (
+    <div
+      style={{
+        borderRadius: 5,
+        display: "grid",
+        rowGap: 10,
+        padding: "5px 10px",
+        boxShadow:
+          "0 2px 4px 0 rgba(0, 0, 0, 0.2), 0 3px 5px 0 rgba(0, 0, 0, 0.19)",
+      }}
+    >
+      <h3 style={{ textAlign: "center", margin: 0 }}>Choose time slot</h3>
+      <hr />
+      <Radio.Group>
+        <div style={{ display: "grid", rowGap: 15 }}>
+          <Radio value={1}>
+            <TimeSlotInfo label="9:30-10:30" count={10} />
+          </Radio>
+          <Radio value={1}>
+            <TimeSlotInfo label="10:30-11:30" count={10} />
+          </Radio>
+          <Radio value={1}>
+            <TimeSlotInfo label="11:30-12:30" count={10} />
+          </Radio>
+          <Radio value={1}>
+            <TimeSlotInfo label="2:30-3:30" count={10} />
+          </Radio>
+        </div>
+      </Radio.Group>
+    </div>
+  );
+};
+const TimeSlotInfo = ({ label, count }) => {
+  return (
+    <div style={{ display: "grid", gridAutoFlow: "column", columnGap: 10 }}>
+      <div>{label}</div>
+      <div
+        style={{
+          backgroundColor: "lightgreen",
+          padding: "0px 5px",
+          borderRadius: 5,
+          color: "green",
+          border: "1px solid green",
+        }}
+      >
+        {count}
+      </div>
+    </div>
+  );
+};

@@ -290,7 +290,7 @@ const ScheduleDateBlock = ({ label, value }) => (
       <div
         style={{
           padding: "5px 10px",
-          backgroundColor: "green",
+          backgroundColor: "#27A843",
           borderRadius: 5,
         }}
       >
